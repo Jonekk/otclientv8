@@ -52,6 +52,7 @@ public:
     void setSkill(uint8_t skill, int level, int levelPercent);
     void setBaseSkill(uint8_t skill, int baseLevel);
     void setHealth(double health, double maxHealth);
+    void setStaminac(double staminac, double maxStaminac);
     void setFreeCapacity(double freeCapacity);
     void setTotalCapacity(double totalCapacity);
     void setExperience(double experience);
@@ -95,6 +96,8 @@ public:
     std::vector<int> getSpells() { return m_spells; }
     ItemPtr getInventoryItem(Otc::InventorySlot inventory) { return m_inventoryItems[inventory]; }
     int getBlessings() { return m_blessings; }
+    double getStaminac() { return m_staminac; }
+    double getMaxStaminac() { return m_maxStaminac; }
 
     bool hasSight(const Position& pos);
     bool isKnown() { return m_known; }
@@ -200,6 +203,8 @@ private:
     double m_stamina;
     double m_regenerationTime;
     double m_offlineTrainingTime;
+    double m_staminac;
+    double m_maxStaminac;
 };
 
 #endif

@@ -84,6 +84,11 @@ Icons[PlayerStates.Hungry] = {
     path = '/images/game/states/hungry',
     id = 'condition_hungry'
 }
+Icons[PlayerStates.Starving] = {
+    tooltip = tr('You are starving'),
+    path = '/images/game/states/starving',
+    id = 'condition_starving'
+}
 
 local iconsTable = {
     ["Experience"] = 8,

@@ -30,3 +30,4 @@ context.hasPz = function() return context.hasCondition(PlayerStates.Pz) end
 context.isInPz = function() return context.hasCondition(PlayerStates.Pz) end
 context.isBleeding = function() return context.hasCondition(PlayerStates.Bleeding) end
 context.isHungry = function() return context.hasCondition(PlayerStates.Hungry) end
+context.isStarving = function() return context.hasCondition(PlayerStates.Starving) end

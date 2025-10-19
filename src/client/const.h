@@ -158,6 +158,11 @@ namespace Otc
         Distance,
         Shielding,
         Fishing,
+        Crafting,
+        Cooking,
+        Mining,
+        Farming,
+        Hunting,
         CriticalChance,
         CriticalDamage,
         LifeLeechChance,
@@ -289,7 +294,8 @@ namespace Otc
         IconPzBlock = 8192,
         IconPz = 16384,
         IconBleeding = 32768,
-        IconHungry = 65536
+        IconHungry = 65536,
+        IconStarving = 131072,
     };
 
     enum MessageMode {

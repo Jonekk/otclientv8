@@ -265,7 +265,8 @@ if(NOT WASM)
         ${PHYSFS_LIBRARY}
         ${OPENSSL_LIBRARIES}
         ${ZLIB_LIBRARY}
-        ${LIBZIP_LIBRARY}
+        
+        -lzip
 	${ZLIB_LIBRARY}
 	${BZIP2_LIBRARIES}
     )

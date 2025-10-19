@@ -1989,6 +1989,11 @@ void ProtocolGame::parsePlayerStats(const InputMessagePtr& msg)
             /*bool canBuyMoreStoreXpBoosts = */msg->getU8();
         }
     }
+    double staminac;
+    double maxStaminac;
+    staminac = msg->getU16();
+    maxStaminac = msg->getU16();
+    m_localPlayer->setStaminac(staminac, maxStaminac);
 
     m_localPlayer->setHealth(health, maxHealth);
     m_localPlayer->setFreeCapacity(freeCapacity);
@@ -2010,7 +2015,7 @@ void ProtocolGame::parsePlayerStats(const InputMessagePtr& msg)
 
 void ProtocolGame::parsePlayerSkills(const InputMessagePtr& msg)
 {
-    int lastSkill = Otc::Fishing + 1;
+    int lastSkill = Otc::Hunting + 1;
     if (g_game.getFeature(Otc::GameAdditionalSkills))
         lastSkill = Otc::LastSkill;
 
@@ -2042,7 +2047,7 @@ void ProtocolGame::parsePlayerSkills(const InputMessagePtr& msg)
 
         int levelPercent = 0;
         // Critical, Life Leech and Mana Leech have no level percent
-        if (skill <= Otc::Fishing) {
+        if (skill <= Otc::Hunting) {
             if (g_game.getFeature(Otc::GameTibia12Protocol))
                 msg->getU16(); // unknown
 
@@ -3589,6 +3594,11 @@ ItemPtr ProtocolGame::getItem(const InputMessagePtr& msg, int id, bool hasDescri
 
     if (g_game.getFeature(Otc::GameThingMarks) && !g_game.getFeature(Otc::GameTibia12Protocol)) {
         msg->getU8(); // mark
+    }
+
+    bool invisible = msg->getU8() == 0x01;
+    if (invisible) {
+        item->setInvisible(true);
     }
 
     if (item->isStackable() || item->isChargeable()) {

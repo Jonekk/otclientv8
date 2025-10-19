@@ -1,0 +1,164 @@
+NPCOfferLabel < Label
+  anchors.left: prev.right
+  anchors.top: prev.top
+  margin-left: 5
+  text-auto-resize: true
+
+MaterialWidget < Panel
+  margin-top: 3
+  size: 50 90
+
+  Item
+    id: item
+    phantom: true
+    image-color: #ffffffff
+    anchors.horizontalCenter: parent.horizontalCenter
+
+  Label
+    id: itemCount
+    text: "(10/20)"
+    margin-top: 32
+    size: 50 12
+    text-align: top
+    anchors.top: prev.top
+  Label
+    id: itemName
+    size: 50 36
+    margin-top: 12
+    text-align: top
+    text-wrap: true
+    anchors.top: prev.top
+
+CraftItemBox < UICheckBox
+  background-color:#a8a8a880
+  color: #aaaaaa
+  text-align: left
+  text-offset: 35 0
+  height: 32
+  margin-right: 20
+  margin-top: 1
+  margin-bottom: 1
+  @onCheckChange: modules.crafting.CraftUI.onRecipeChecked(self)
+
+  Item
+    id: item
+    phantom: true
+    anchors.top: parent.top
+    anchors.left: parent.left
+    image-color: #ffffffff
+
+  $checked on:
+    border-color: #ffffff
+
+  $!checked:
+    background-color: alpha
+
+SubcategoryWidget < Panel
+  layout: 
+    type: verticalBox
+    fit-children: true
+  padding: 2
+
+  Button
+    id: header
+    height: 20
+    text: "Category"
+    text-offset: 6 0
+    font: verdana-11px-antialised
+    @onClick: |
+      local body = self:getParent():getChildById('body')
+      local arrow = self:getChildById('arrow')
+      body:setVisible(not body:isVisible())
+
+  Panel
+    id: body
+    layout: 
+      type: verticalBox
+      fit-children: true
+    visible: false
+
+CategoryButton < TabButton
+  layout-width: expand
+  margin-top: 0
+
+MainWindow
+  id: npcWindow
+  !text: tr('NPC Trade')
+  size: 800 600
+  @onEscape: modules.game_npctrade.closeNpcTrade()
+
+  $mobile:
+    size: 550 360
+
+  Panel
+    id: tabsBar
+    anchors.left: parent.left
+    anchors.right: parent.right
+    anchors.top: parent.top
+    height: 28
+    layout:
+      type: horizontalBox
+      spacing: 0
+      fit-children: false
+
+  FlatPanel
+    height: 500
+    width: 200
+    anchors.left: parent.left
+    anchors.top: prev.bottom
+    margin-top: 5
+
+    $mobile:
+      height: 150
+
+    VerticalScrollBar
+      id: recipesPanelListScrollBar
+      anchors.top: parent.top
+      anchors.bottom: parent.bottom
+      anchors.right: parent.right
+      step: 24
+      pixels-scroll: true
+
+    ScrollablePanel
+      id: recipesPanel
+      height: 500
+      anchors.fill: parent
+      vertical-scrollbar: recipesPanelListScrollBar
+      margin-left: 5
+      margin-right: 5
+      layout:
+        type: verticalBox
+        auto-spacing: true
+
+  Panel
+    id: craftingPanel
+    layout: anchor
+    anchors.right: parent.right
+    anchors.left: prev.right
+    anchors.top: parent.top
+    anchors.bottom: parent.bottom
+    margin-left: 5
+    margin-right: 5
+
+    Label
+      id: materialsLabel
+      anchors.left: parent.left
+      anchors.top: parent.top
+      size: 100 50
+      text: "Materials:"
+      text-align: right
+      margin-top: 200
+      visible: false
+
+    Panel
+      id: craftingCenterBox
+      anchors.left: prev.right
+      anchors.right: parent.right
+      anchors.top: parent.top
+      height: 80
+      margin-top: 200
+      margin-left: 30
+      layout:
+        type: horizontalBox
+        spacing: 10
+

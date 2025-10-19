@@ -120,7 +120,15 @@ HealthInfoWindow < MiniWindow
       anchors.right: parent.right
       margin: 2
       margin-top: 1
-      
+
+    StaminaBar
+      id: staminaBar
+      anchors.top: parent.top
+      anchors.left: parent.left
+      anchors.right: parent.right
+      margin: 2
+      margin-top: 1
+
     ManaBar
       id: manaBar
       anchors.top: prev.bottom

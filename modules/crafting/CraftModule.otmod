@@ -1,0 +1,8 @@
+Module
+  name: crafting
+  autoload: true
+  sandboxed: false
+  dependencies: [ "game_interface" ]
+  scripts: [ "CraftNet.lua", "CraftUI.lua", "CraftData.lua", "CraftMain.lua" ]
+  @onLoad: CraftBootstrap()
+  @onUnload: CraftShutdown()

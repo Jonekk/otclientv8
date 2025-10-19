@@ -1,0 +1,87 @@
+AgilityBar < Panel
+  id: agilityBar
+  size: 380 20
+  layout:
+    type: anchor
+  background-color: #141414CC
+  border: 1 #FFFFFF22
+  padding: 0
+
+  ProgressBar
+    id: bar
+    anchors.fill: parent
+    minimum: 0
+    maximum: 100
+    percent: 0
+    background-color: #868400
+
+  Panel
+    id: overlayLayer
+    anchors.fill: parent
+    phantom: true
+    opacity: 1.0
+
+    Panel
+      id: overlayRange
+      anchors.left: parent.left
+      anchors.verticalCenter: parent.verticalCenter
+      width: 20
+      height: 10
+      margin-left: 0
+      background-color: #3CBE5CAA
+      border: 1 #00000099
+
+  Panel
+    id: cursor
+    anchors.left: parent.left
+    anchors.top: parent.top
+    anchors.bottom: parent.bottom
+    width: 2
+    margin-left: 0
+    background-color: #FFFFFFFF
+
+  Panel
+    id: cursorHit
+    anchors.left: parent.left
+    anchors.top: parent.top
+    anchors.bottom: parent.bottom
+    width: 2
+    margin-left: 0
+    background-color: #ff0000
+
+FishingBar < ProgressBar
+  id: fishingBar
+  background-color: #0f4aeb
+  margin: 1
+  margin-top: 3
+
+FishingQTESimple < Panel
+  id: fishingQTE
+  size: 420 220
+  anchors.centerIn: parent
+  layout:
+    type: verticalBox
+    spacing: 10
+  visible: false
+  draggable: true
+  padding: 12
+  focusable: true
+  phantom: false
+  background-color: #000000AA
+  border: 1 #FFFFFF28
+
+  Label
+    id: title
+    text: "Fishing QTE"
+    font: verdana-11px-antialised
+    color: #FFFFFF
+    text-align: center
+
+  Label
+    id: prompt
+    text: "Press space to catch"
+    font: verdana-11px-antialised
+    color: #CCCCCC
+    text-align: center
+  FishingBar
+  AgilityBar

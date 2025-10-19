@@ -1,0 +1,9 @@
+Module
+  name: fishing_qte
+  description: "Simple fishing QTE (ASDFGHJKL)"
+  author: "you"
+  autoload: true
+  sandboxed: false
+  dependencies: [ "game_interface" ]
+  scripts: [ fishing_qte.lua ]
+  @onLoad: init()

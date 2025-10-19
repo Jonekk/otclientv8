@@ -317,7 +317,7 @@ public:
     int getRecivedPacketsSize() { return m_recivedPackedsSize; }
 
 private:
-    stdext::boolean<false> m_enableSendExtendedOpcode;
+    stdext::boolean<true> m_enableSendExtendedOpcode;
     stdext::boolean<false> m_gameInitialized;
     stdext::boolean<false> m_mapKnown;
     stdext::boolean<true> m_firstRecv;

@@ -175,38 +175,73 @@ MiniWindow
       SkillValueLabel
       SkillPercentPanel
 
-    SmallSkillButton
+    SkillButton
       id: skillId7
+      SkillNameLabel
+        !text: tr('Crafting')
+      SkillValueLabel
+      SkillPercentPanel
+
+    SkillButton
+      id: skillId8
+      SkillNameLabel
+        !text: tr('Cooking')
+      SkillValueLabel
+      SkillPercentPanel
+
+    SkillButton
+      id: skillId9
+      SkillNameLabel
+        !text: tr('Mining')
+      SkillValueLabel
+      SkillPercentPanel
+
+    SkillButton
+      id: skillId10
+      SkillNameLabel
+        !text: tr('Farming')
+      SkillValueLabel
+      SkillPercentPanel
+
+    SkillButton
+      id: skillId11
+      SkillNameLabel
+        !text: tr('Hunting')
+      SkillValueLabel
+      SkillPercentPanel
+
+    SmallSkillButton
+      id: skillId12
       SkillNameLabel
         !text: tr('Critical Hit Chance')
       SkillValueLabel
 
     SmallSkillButton
-      id: skillId8
+      id: skillId13
       SkillNameLabel
         !text: tr('Critical Hit Damage')
       SkillValueLabel
 
     SmallSkillButton
-      id: skillId9
+      id: skillId14
       SkillNameLabel
         !text: tr('Life Leech Chance')
       SkillValueLabel
 
     SmallSkillButton
-      id: skillId10
+      id: skillId15
       SkillNameLabel
         !text: tr('Life Leech Amount')
       SkillValueLabel
 
     SmallSkillButton
-      id: skillId11
+      id: skillId16
       SkillNameLabel
         !text: tr('Mana Leech Chance')
       SkillValueLabel
 
     SmallSkillButton
-      id: skillId12
+      id: skillId17
       SkillNameLabel
         !text: tr('Mana Leech Amount')
       SkillValueLabel

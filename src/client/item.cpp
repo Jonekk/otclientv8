@@ -82,6 +82,9 @@ void Item::draw(const Point& dest, bool animate, LightView* lightView)
 {
     if (m_clientId == 0)
         return;
+    
+    if (isInvisible())
+        return;
 
     // determine animation phase
     int animationPhase = calculateAnimationPhase(animate);
@@ -108,6 +111,9 @@ void Item::draw(const Point& dest, bool animate, LightView* lightView)
 void Item::draw(const Rect& dest, bool animate)
 {
     if (m_clientId == 0)
+        return;
+
+    if (isInvisible())
         return;
 
     // determine animation phase

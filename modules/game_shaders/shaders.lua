@@ -18,6 +18,21 @@ function init()
   g_shaders.createOutfitShader("outfit_rainbow", "/shaders/outfit_rainbow_vertex", "/shaders/outfit_rainbow_fragment")
   g_shaders.addTexture("outfit_rainbow", "/images/shaders/rainbow.png")
 
+  g_shaders.createShader("map_nightvision", "/shaders/map_default_vertex", "/shaders/map_nightvision_fragment")
+  -- Bind hotkey (for example, F9)
+  g_keyboard.bindKeyDown('F9', function()
+    local gameMapPanel = modules.game_interface.getMapPanel()
+    local mapPanel = modules.game_interface.gameMapPanel
+    if mapPanel:getShader() == "map_nightvision" then
+      mapPanel:setShader("map_default")
+      gameMapPanel:setDrawLights(true)
+      g_game.talk('Night vision off')
+    else
+      mapPanel:setShader("map_nightvision")
+      g_game.talk('Night vision on')
+      gameMapPanel:setDrawLights(false)
+    end
+  end)
   -- you can use creature:setOutfitShader("outfit_rainbow") to set shader
 
 end

@@ -68,6 +68,7 @@ enum ItemAttr : uint8
     ATTR_ARTICLE = 41,
     ATTR_SCRIPTPROTECTED = 42,
     ATTR_DUALWIELD = 43,
+    ATTR_INVISIBLE = 44,
     ATTR_ATTRIBUTE_MAP = 128
 };
 
@@ -139,6 +140,8 @@ public:
     Position getTeleportDestination() { return m_attribs.get<Position>(ATTR_TELE_DEST); }
     void setTeleportDestination(const Position& pos) { m_attribs.set(ATTR_TELE_DEST, pos); }
 
+    void setInvisible(bool invisible) { m_attribs.set(ATTR_INVISIBLE, invisible); }
+
     void setAsync(bool enable) { m_async = enable; }
 
     bool isHouseDoor() { return m_attribs.has(ATTR_HOUSEDOORID); }
@@ -148,6 +151,7 @@ public:
     bool isTeleport() { return m_attribs.has(ATTR_TELE_DEST); }
     bool isMoveable();
     bool isGround();
+    bool isInvisible() { return m_attribs.has(ATTR_INVISIBLE); }
 
     ItemPtr clone();
     ItemPtr asItem() { return static_self_cast<Item>(); }

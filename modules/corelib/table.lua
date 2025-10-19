@@ -245,7 +245,8 @@ function table.encodeStringPairList(t)
       ret = ret .. v[1] .. ":" .. v[2] .. "\n"
     end
   end
-  return retend
+  return ret
+end
 
 function table.decodeStringPairList(l)
   local ret = {}
@@ -284,4 +285,13 @@ function table.decodeStringPairList(l)
     end    
   end
   return ret
+end
+
+function table.exists(t, value)
+  for _, v in pairs(t) do
+      if v == value then
+          return true
+      end
+  end
+  return false
 end

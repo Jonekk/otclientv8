@@ -16,6 +16,7 @@ Icons[PlayerStates.PzBlock] = { tooltip = tr('You may not logout or enter a prot
 Icons[PlayerStates.Pz] = { tooltip = tr('You are within a protection zone'), path = '/images/game/states/protection_zone', id = 'condition_protection_zone' }
 Icons[PlayerStates.Bleeding] = { tooltip = tr('You are bleeding'), path = '/images/game/states/bleeding', id = 'condition_bleeding' }
 Icons[PlayerStates.Hungry] = { tooltip = tr('You are hungry'), path = '/images/game/states/hungry', id = 'condition_hungry' }
+Icons[PlayerStates.Starving] = { tooltip = tr('You are starving'), path = '/images/game/states/starving', id = 'condition_starving' }
 
 InventorySlotStyles = {
   [InventorySlotHead] = "HeadSlot",

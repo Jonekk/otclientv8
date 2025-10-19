@@ -32,6 +32,11 @@ HealthBar < ProgressBar
   image-border: 3
   background-color: #ff4444
 
+StaminaBar < ProgressBar
+  image-source: /images/ui/progressbarhpmana
+  image-border: 3
+  background-color: #B0B344
+
 ManaBar < ProgressBar
   image-source: /images/ui/progressbarhpmana
   image-border: 4

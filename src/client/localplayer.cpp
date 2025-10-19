@@ -493,6 +493,25 @@ void LocalPlayer::setHealth(double health, double maxHealth)
     }
 }
 
+void LocalPlayer::setStaminac(double staminac, double maxStaminac)
+{
+    if(m_staminac != staminac || m_maxStaminac != maxStaminac) {
+        double oldStaminac = m_staminac;
+        double oldMaxStaminac = m_maxStaminac;
+        m_staminac = staminac;
+        m_maxStaminac = maxStaminac;
+
+        callLuaField("onStaminacChange", staminac, maxStaminac, oldStaminac, oldMaxStaminac);
+
+        // cannot walk while dying
+        if(staminac == 0) {
+            if(isPreWalking())
+                stopWalk();
+            lockWalk();
+        }
+    }
+}
+
 void LocalPlayer::setFreeCapacity(double freeCapacity)
 {
     if(m_freeCapacity != freeCapacity) {

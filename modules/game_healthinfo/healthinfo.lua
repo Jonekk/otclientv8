@@ -16,9 +16,11 @@ Icons[PlayerStates.PzBlock] = { tooltip = tr('You may not logout or enter a prot
 Icons[PlayerStates.Pz] = { tooltip = tr('You are within a protection zone'), path = '/images/game/states/protection_zone', id = 'condition_protection_zone' }
 Icons[PlayerStates.Bleeding] = { tooltip = tr('You are bleeding'), path = '/images/game/states/bleeding', id = 'condition_bleeding' }
 Icons[PlayerStates.Hungry] = { tooltip = tr('You are hungry'), path = '/images/game/states/hungry', id = 'condition_hungry' }
+Icons[PlayerStates.Starving] = { tooltip = tr('You are starving'), path = '/images/game/states/starving', id = 'condition_starving' }
 
 healthInfoWindow = nil
 healthBar = nil
+staminaBar = nil
 manaBar = nil
 experienceBar = nil
 soulLabel = nil
@@ -38,6 +40,7 @@ topManaBar = nil
 function init()
   connect(LocalPlayer, { onHealthChange = onHealthChange,
                          onManaChange = onManaChange,
+                         onStaminacChange = onStaminacChange,
                          onLevelChange = onLevelChange,
                          onStatesChange = onStatesChange,
                          onSoulChange = onSoulChange,
@@ -59,6 +62,7 @@ function init()
 
   healthBar = healthInfoWindow:recursiveGetChildById('healthBar')
   manaBar = healthInfoWindow:recursiveGetChildById('manaBar')
+  staminaBar = healthInfoWindow:recursiveGetChildById('staminaBar')
   experienceBar = healthInfoWindow:recursiveGetChildById('experienceBar')
   soulLabel = healthInfoWindow:recursiveGetChildById('soulLabel')
   capLabel = healthInfoWindow:recursiveGetChildById('capLabel')
@@ -82,6 +86,7 @@ function init()
     local localPlayer = g_game.getLocalPlayer()
     onHealthChange(localPlayer, localPlayer:getHealth(), localPlayer:getMaxHealth())
     onManaChange(localPlayer, localPlayer:getMana(), localPlayer:getMaxMana())
+    onStaminacChange(localPlayer, localPlayer:getStaminac(), localPlayer:getMaxStaminac())
     onLevelChange(localPlayer, localPlayer:getLevel(), localPlayer:getLevelPercent())
     onStatesChange(localPlayer, localPlayer:getStates(), 0)
     onSoulChange(localPlayer, localPlayer:getSoul())
@@ -103,6 +108,7 @@ end
 function terminate()
   disconnect(LocalPlayer, { onHealthChange = onHealthChange,
                             onManaChange = onManaChange,
+                            onStaminacChange = onStaminacChange,
                             onLevelChange = onLevelChange,
                             onStatesChange = onStatesChange,
                             onSoulChange = onSoulChange,
@@ -211,6 +217,16 @@ function onManaChange(localPlayer, mana, maxMana)
   local rect = { x = 0, y = Ymppc, width = 63, height = 208 - Ymppc + 1 }
   manaCircleFront:setImageClip(rect)
   manaCircleFront:setImageRect(rect)
+end
+
+function onStaminacChange(localPlayer, stamina, maxStamina)
+  if stamina > maxStamina then
+    maxStamina = stamina
+  end
+  
+  staminaBar:setText(comma_value(stamina) .. ' / ' .. comma_value(maxStamina))
+  staminaBar:setTooltip(tr(manaTooltip, stamina, maxStamina))
+  staminaBar:setValue(stamina, 0, maxStamina)
 end
 
 function onLevelChange(localPlayer, value, percent)

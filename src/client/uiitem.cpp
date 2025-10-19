@@ -39,6 +39,9 @@ UIItem::UIItem()
 
 void UIItem::drawSelf(Fw::DrawPane drawPane)
 {
+    if (m_item and m_item->isInvisible()) {
+        return;
+    }
     if(drawPane != Fw::ForegroundPane)
         return;
     // draw style components in order

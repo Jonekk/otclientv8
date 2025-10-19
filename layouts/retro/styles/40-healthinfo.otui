@@ -109,7 +109,7 @@ HealthOverlay < UIWidget
 HealthInfoWindow < HeadlessMiniWindow
   icon: 
   text:
-  height: 100
+  height: 120
   &forceOpen: true
   icon: /images/topbuttons/healthinfo
   !text: tr('Health Info')  
@@ -125,7 +125,15 @@ HealthInfoWindow < HeadlessMiniWindow
       margin: 2
       margin-top: 0
       phantom: true
-      
+
+    StaminaBar
+      id: staminaBar
+      anchors.top: prev.bottom
+      anchors.left: parent.left
+      anchors.right: parent.right
+      margin: 2
+      phantom: true
+
     ManaBar
       id: manaBar
       anchors.top: prev.bottom

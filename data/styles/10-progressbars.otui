@@ -33,5 +33,8 @@ ProgressRect < UIProgressRect
 HealthBar < ProgressBar
   background-color: #ff4444
 
+StaminaBar < ProgressBar
+  background-color:rgb(255, 243, 68)
+
 ManaBar < ProgressBar
   background-color: #4444ff

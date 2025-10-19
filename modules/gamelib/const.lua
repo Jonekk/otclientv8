@@ -53,12 +53,17 @@ Skill = {
   Distance = 4,
   Shielding = 5,
   Fishing = 6,
-  CriticalChance = 7,
-  CriticalDamage = 8,
-  LifeLeechChance = 9,
-  LifeLeechAmount = 10,
-  ManaLeechChance = 11,
-  ManaLeechAmount = 12
+  Cratfing = 7,
+  Cooking = 8,
+  Mining = 9,
+  Farming = 10,
+  Hunting = 11,
+  CriticalChance = 12,
+  CriticalDamage = 13,
+  LifeLeechChance = 14,
+  LifeLeechAmount = 15,
+  ManaLeechChance = 16,
+  ManaLeechAmount = 17
 }
 
 North = Directions.North

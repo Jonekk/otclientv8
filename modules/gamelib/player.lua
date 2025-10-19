@@ -18,7 +18,8 @@ PlayerStates = {
   PzBlock = 8192,
   Pz = 16384,
   Bleeding = 32768,
-  Hungry = 65536
+  Hungry = 65536,
+  Starving = 131072,
 }
 
 InventorySlotOther = 0
